@@ -1,3 +1,8 @@
+var aylienapi = new aylien({
+    application_id: process.env.API_ID,
+    application_key: process.env.API_KEY
+    });
+
 function handleSubmit(event) {
     event.preventDefault()
 
