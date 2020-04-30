@@ -1,4 +1,4 @@
-var aylienapi = new aylien({
+const aylienApi = new aylien({
     application_id: process.env.API_ID,
     application_key: process.env.API_KEY
     });
@@ -7,6 +7,7 @@ function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
+    //  This could be where you validate the url prior to aylienApilCall
     let formText = document.getElementById('name').value
     checkForName(formText)
 
