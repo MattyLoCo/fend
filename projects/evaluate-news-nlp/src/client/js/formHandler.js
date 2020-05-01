@@ -1,5 +1,3 @@
-import { UrlValidator } from "./validateUrl";
-
 const aylienApi = new aylien({
     application_id: process.env.API_ID,
     application_key: process.env.API_KEY
@@ -18,7 +16,7 @@ function SubmitHandler(event) {
     fetch('http://localhost:8080/test')
     .then(res => res.json())
     .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
+        console.log(res.message);
     })
 
     let results = aylienApi.combined({
