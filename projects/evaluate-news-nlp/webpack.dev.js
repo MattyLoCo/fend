@@ -1,6 +1,6 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
+const Path = require('path')
+const Webpack = require('webpack')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
@@ -11,23 +11,30 @@ module.exports = {
     module: {
         rules: [
             {
-                test: '/\.js$/',
+                enforce: 'pre',
+                test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: 'eslint-loader',
+                options: {
+                    cache: './.eslint-loader-cache',
+                    emitError: true
+                }
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
             }
         ]
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: "./src/client/views/index.html",
-            filename: "./index.html",
+            template: './src/client/views/index.html',
+            filename: './index.html',
         }),
         new CleanWebpackPlugin({
-            // Simulate the removal of files
             dry: true,
-            // Write Logs to Console
             verbose: true,
-            // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         })
