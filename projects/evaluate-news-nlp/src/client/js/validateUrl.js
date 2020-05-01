@@ -9,6 +9,9 @@ const UrlValidator = (userInput) => {
         alert('Not a valid URL. Please, check your spelling.');
         return false;
     } else {
+
+        //  Debug log test
+        console.log(typeof userInput);
         return userInput;    
     }    
 };

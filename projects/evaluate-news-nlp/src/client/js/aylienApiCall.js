@@ -32,7 +32,7 @@ aylienApi.sentiment({
 //  Combine all the above calls into this one
 textapi.combined({
     "url": "http://www.bbc.com/news/technology-33764155",
-    "endpoint": ["entities", "concepts", "classify"]
+    "endpoint": ["extract", "summarize", "sentiment"]
   }, function(err, result) {
     if (err === null) {
       result.results.forEach(function(r) {

@@ -20,18 +20,26 @@ function SubmitHandler(event) {
     // .then(function(res) {
     //     document.getElementById('results').innerHTML = res.message
     // })
-    aylienApi.combined({
+
+    let results = aylienApi.combined({
         "url": url,
         "endpoint": ["extract", "summarize", "sentiment"]
       }, function(err, result) {
         if (err === null) {
           let array = [];
 
+          //  Debug log test:
+          console.log(typeof result);
+
           result.results.forEach(function(r) {
+            
+            //  Debug log test:
             console.log(r.endpoint + ':');
             console.log(r.result);
+
+            array.push(r.endpoint);
             array.push(r.result);
-          return array;  
+            return array;  
           })
         } else {
           console.log(err)
