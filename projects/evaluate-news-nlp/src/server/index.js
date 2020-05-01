@@ -28,11 +28,13 @@ app.get('/', function (req, res) {
     res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
-// designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
+// designates what port the NLP app will listen to for incoming requests
+app.listen(8081, function () {
+    console.log('NLP app listening on port 8080!')
 })
 
+//  This is a separate page that cannot use the webpack server 8080
+//  because webpack dev server only accommodates ones page
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
