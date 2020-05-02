@@ -20,10 +20,10 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'eslint-loader',
-                options: {
-                    cache: './.eslint-loader-cache',
-                    emitError: true
-                }
+                // options: {
+                //     cache: './.eslint-loader-cache',
+                //     emitError: true
+                // }
             },
             {
                 test: /\.js$/,

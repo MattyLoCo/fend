@@ -1,3 +1,4 @@
+/* exported alyienApi */
 const aylienApi = new aylien({
     application_id: process.env.API_ID,
     application_key: process.env.API_KEY

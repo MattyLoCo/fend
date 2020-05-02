@@ -1,17 +1,22 @@
 {
-  "name": "example-project",
+  "name": "nlp-project",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "lint": "eslint --ext .js, src src/client/js/",
     "start": "node src/server/index.js",
     "prod": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nlp",
+    "natural language processing"
+  ],
+  "author": "Matthew Lopez",
   "license": "ISC",
-  "description": "",
+  "description": "A package to determine content and sentiment of news articles",
+  "repository": "github.com/MattyLoCo/fend/tree/refresh-2019/projects/evaluate-news-nlp",
   "dependencies": {
     "aylien_textapi": "^0.7.0",
     "babel-jest": "^25.5.1",
@@ -49,5 +54,3 @@
     }
   }
 }
-
-
