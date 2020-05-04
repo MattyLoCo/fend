@@ -1,5 +1,6 @@
 import { UrlValidator } from './js/validateUrl';
 import { SubmitHandler } from './js/formHandler';
+import { ResultsUpdate} from './js/uiUpdate';
 
 import './styles/resets.scss';
 import './styles/header.scss';
@@ -14,5 +15,6 @@ console.log("CHANGE!!");
 
 export {
     UrlValidator,
-    SubmitHandler
+    SubmitHandler,
+    ResultsUpdate
 };

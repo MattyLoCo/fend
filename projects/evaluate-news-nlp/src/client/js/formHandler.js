@@ -12,7 +12,6 @@ function SubmitHandler(event) {
     let url = Client.UrlValidator(formText);
 
     console.log("::: Form Submitted :::")
-    // Template for data flow here:
     fetch('http://localhost:8080/test')
     .then(res => res.json())
     .then(function(res) {
@@ -41,8 +40,9 @@ function SubmitHandler(event) {
           })
         } else {
           console.log(err)
-        }
+        }  
       });
+    results.forEach(resultsUpdate(results));          
 }
 
-export { SubmitHandler }
+export { SubmitHandler };
