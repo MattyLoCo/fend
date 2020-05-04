@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll",
     "lint": "eslint src/client/js",
     "lint-fix": "eslint --fix src/client/js",
     "start": "node src/server/index.js",

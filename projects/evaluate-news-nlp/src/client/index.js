@@ -9,9 +9,7 @@ import './styles/footer.scss';
 import './styles/base.scss';
 
 console.log(UrlValidator);
-
 alert("I EXIST");
-console.log("CHANGE!!");
 
 export {
     UrlValidator,

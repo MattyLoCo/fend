@@ -3,8 +3,8 @@ const aylienApi = new aylien({
     application_key: process.env.API_KEY
     });
 
-function SubmitHandler(event) {
-    event.preventDefault()
+async function SubmitHandler(event) {
+    await event.preventDefault()
 
     // check what text was put into the form field
     //  This could be where you validate the url prior to aylienApilCall
@@ -12,13 +12,13 @@ function SubmitHandler(event) {
     let url = Client.UrlValidator(formText);
 
     console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
+    await fetch('http://localhost:8080/test')
     .then(res => res.json())
     .then(function(res) {
         console.log(res.message);
     })
 
-    let results = aylienApi.combined({
+    let results = await aylienApi.combined({
         "url": url,
         "endpoint": ["extract", "summarize", "sentiment"]
       }, function(err, result) {
@@ -42,7 +42,7 @@ function SubmitHandler(event) {
           console.log(err)
         }  
       });
-    results.forEach(resultsUpdate(results));          
+    await results.forEach(resultsUpdate(results));          
 }
 
 export { SubmitHandler };
