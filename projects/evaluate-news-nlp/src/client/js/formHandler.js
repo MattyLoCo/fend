@@ -4,7 +4,7 @@ import { UrlValidator } from './validateUrl';
 function SubmitHandler(event) {
     event.preventDefault();
 
-    let formText = document.getElementById('name').value;
+    let formText = document.getElementById('webAddress').value;
     let url = UrlValidator(formText);
 
     fetch('http://localhost:3000/api', {
@@ -12,9 +12,12 @@ function SubmitHandler(event) {
         body: JSON.stringify({url}),
         headers: {'Content-Type': 'application/json'}
     })
-    .then((res)=> res.json())
-    .then((reply) => console.log(typeof reply))
-    .then((reply) => ResultsUpdate(reply))
+    .then((reply)=> reply.json())
+    .then((reply) => {
+        console.log(typeof reply);
+        let objectReply = JSON.parse(reply);
+        ResultsUpdate(objectReply);
+    })    
     .catch((error) => {
         console.log(error);
     });

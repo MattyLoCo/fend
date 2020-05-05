@@ -20,33 +20,35 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
-app.use(express.static('dist'))
+app.use(express.static('dist'));
 
-console.log(__dirname)
+console.log(__dirname);
 
+/* Initialize server */
+app.listen(3000, function () {
+    console.log('NLP app listening on port 3000!')
+});
+
+/* Set routes */
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('evaluate-news-nlp/dist/index.html'))
-})
-
-
-app.listen(3000, function () {
-    console.log('NLP app listening on port 3000!')
-})
+});
 
 app.post('/api', async (req, res) => {
-    const formText = req.body;
-    console.log(formText);
+    let formText = req.body;
     
     try {
-        console.log("Sending request");
-        textapi.sentiment({'text': formText }, 
-          function(error, response) {
+        console.log(`Sending request to Aylien for ${formText}...`);
+        textapi.sentiment({
+            text: formText,
+            mode: 'document'
+        }), function (error, response) {
             if (error === null) {
                 console.log(typeof response + response);
-                res.send(response);
+                response.send(response.body);            
             }
-          })
+        } 
     } catch(error) {
         console.log(error);
     }
