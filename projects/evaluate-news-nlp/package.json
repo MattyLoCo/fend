@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest --watchALL",
     "lint": "eslint src/client/js",
     "lint-fix": "eslint --fix src/client/js",
     "start": "node src/server/index.js",
@@ -17,7 +17,7 @@
   "author": "Matthew Lopez",
   "license": "ISC",
   "description": "A package to determine content and sentiment of news articles",
-  "repository": "github.com/MattyLoCo/fend/tree/refresh-2019/projects/evaluate-news-nlp",
+  "repository": "github.com/MattyLoCo/fend/tree/master/projects/evaluate-news-nlp",
   "dependencies": {
     "aylien_textapi": "^0.7.0",
     "babel-jest": "^25.5.1",

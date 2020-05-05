@@ -1,25 +1,19 @@
 function ResultsUpdate(results) {
     //  Create local variables
-    let content = getElementById("results");
-    let listData = results;
-    let listContainer = document.createElement('div');
-    let listHeader = document.createElement('h1');
+    let listContainer = document.getElementById('results');
+    let listData = JSON.parse(results);
     let listElement = document.createElement('ul');
-    let numberOfListItems = listData.length;
-    let listItem;
-    let i;
-    let headerContent = JSON.stringify(results.endpoint);             
+    let listItem;            
 
     //  Create HTML framework to receive content
-    content.appendChild(listContainer);
-    listContainer.appendChild(listHeader);
-    listHeader.innerHTML = headerContent;
     listContainer.appendChild(listElement);
 
     //  Loop over alyienAPI object to fill results field
-    for (i = 0; i < numberOfListItems; ++i) {
+    for (let [key, value] of Object.entries(listData)) {
+        console.log(`${key}: ${value}`);
+      
         listItem = document.createElement('li');
-        listItem.innerHTML = listData[i];
+        listItem.innerHTML = (`${key}: ${value}`);
         listElement.appendChild(listItem);
     }
 }

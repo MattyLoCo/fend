@@ -24,6 +24,12 @@
         "quotes": [            
             "warn",
             "single"
+        ],
+        "no-undef": [
+            "warn"
+        ],
+        "no-useless-escape": [
+            "warn"
         ]
     }
 }

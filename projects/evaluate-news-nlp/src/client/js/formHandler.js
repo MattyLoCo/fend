@@ -1,48 +1,23 @@
-const aylienApi = new aylien({
-    application_id: process.env.API_ID,
-    application_key: process.env.API_KEY
-    });
+import { ResultsUpdate } from './uiUpdate';
+import { UrlValidator } from './validateUrl';
 
-async function SubmitHandler(event) {
-    await event.preventDefault()
+function SubmitHandler(event) {
+    event.preventDefault();
 
-    // check what text was put into the form field
-    //  This could be where you validate the url prior to aylienApilCall
     let formText = document.getElementById('name').value;
-    let url = Client.UrlValidator(formText);
+    let url = UrlValidator(formText);
 
-    console.log("::: Form Submitted :::")
-    await fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function(res) {
-        console.log(res.message);
+    fetch('http://localhost:3000/api', {
+        method: 'POST',       
+        body: JSON.stringify({url}),
+        headers: {'Content-Type': 'application/json'}
     })
-
-    let results = await aylienApi.combined({
-        "url": url,
-        "endpoint": ["extract", "summarize", "sentiment"]
-      }, function(err, result) {
-        if (err === null) {
-          let array = [];
-
-          //  Debug log test:
-          console.log(typeof result);
-
-          result.results.forEach(function(r) {
-            
-            //  Debug log test:
-            console.log(r.endpoint + ':');
-            console.log(r.result);
-
-            array.push(r.endpoint);
-            array.push(r.result);
-            return array;  
-          })
-        } else {
-          console.log(err)
-        }  
-      });
-    await results.forEach(resultsUpdate(results));          
+    .then((res)=> res.json())
+    .then((reply) => console.log(typeof reply))
+    .then((reply) => ResultsUpdate(reply))
+    .catch((error) => {
+        console.log(error);
+    });
 }
 
 export { SubmitHandler };
