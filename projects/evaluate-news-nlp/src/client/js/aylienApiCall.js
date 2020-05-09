@@ -1,9 +1,9 @@
 aylienApi.extract({
-    url: 'http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate',
-    best_image: true
+    url: 'http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate'
   }, function(error, response) {
     if (error === null) {
-      console.log(response);
+      console.log(typeof response + response);
+      response.send(data.text)
     }
   });
 

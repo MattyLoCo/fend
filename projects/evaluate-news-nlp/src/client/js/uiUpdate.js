@@ -1,7 +1,9 @@
+import 'regenerator-runtime/runtime';
+
 function ResultsUpdate(results) {
     //  Create local variables
     let listContainer = document.getElementById('results');
-    let listData = JSON.parse(results);
+    let listData = results;
     let listElement = document.createElement('ul');
     let listItem;            
 

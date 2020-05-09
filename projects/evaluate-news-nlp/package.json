@@ -19,6 +19,7 @@
   "description": "A package to determine content and sentiment of news articles",
   "repository": "github.com/MattyLoCo/fend/tree/master/projects/evaluate-news-nlp",
   "dependencies": {
+    "@babel/polyfill": "^7.8.7",
     "aylien_textapi": "^0.7.0",
     "babel-jest": "^25.5.1",
     "body-parser": "^1.19.0",
@@ -26,8 +27,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "identity-obj-proxy": "^3.0.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.5"
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
@@ -45,14 +45,21 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "terser-webpack-plugin": "^2.3.6",
-    "webpack-bundle-analyzer": "^3.7.0",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.7.2"
   },
   "jest": {
-    "modulePaths": ["/shared/vendor/modules"],
-    "moduleFileExtensions": ["js"],
-    "moduleDirectories": ["node_modules", "bower_components", "shared"],
-
+    "modulePaths": [
+      "/shared/vendor/modules"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js"

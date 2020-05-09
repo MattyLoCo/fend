@@ -1,55 +1,82 @@
+/* Javascript object endpoint for routes */
+projectData = {
+    "text":""
+};
+
+/* Creates private folder for Aylien SDK credentials */
 const dotenv = require('dotenv');
 dotenv.config();
 
+/* Aylien SDK instantiation */
 var aylien = require('aylien_textapi'); 
 var textapi = new aylien({
   application_id: process.env.API_ID,
   application_key: process.env.API_KEY
 });
 
+/* Middleware */
 const path = require('path');
 const express = require('express');
-const mockAPIResponse = require('./mockAPI.js');
-
-const app = express();
-
-/* Middleware */
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+const app = express();
 const cors = require('cors');
+
+/* Make app use middleware */
+app.use(bodyParser.json());
 app.use(cors());
-
 app.use(express.static('dist'));
-
 console.log(__dirname);
 
-/* Initialize server */
+/* Listen for app server */
 app.listen(3000, function () {
     console.log('NLP app listening on port 3000!')
 });
 
+
 /* Set routes */
+
+// GET
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('evaluate-news-nlp/dist/index.html'))
 });
 
-app.post('/api', async (req, res) => {
-    let formText = req.body;
-    
-    try {
-        console.log(`Sending request to Aylien for ${formText}...`);
-        textapi.sentiment({
-            text: formText,
-            mode: 'document'
-        }), function (error, response) {
-            if (error === null) {
-                console.log(typeof response + response);
-                response.send(response.body);            
-            }
-        } 
-    } catch(error) {
-        console.log(error);
+// app.get('/extract', function (req, res) {
+//     console.log(`${req.body} has successfully reached extract route.`)
+//     textapi.extract(
+//         {
+//             url: JSON.stringify(projectData.url),
+//         },
+//     function (error, response) {
+//         if (error === null) {
+//             console.log(`${typeof response} is being sent back to index.js for further handling...`)
+//             projectData.text = response.article;
+//             res.send(response);
+//         } else (error) => {
+//             console.log(error);
+//         }
+//     })
+// });
+
+// POST
+app.post('/sentiment', function (req, res) {
+    projectData = {
+        "text": req.body
     }
-})
+
+    textapi.sentiment(
+        {
+            text: req.body,
+            mode: 'tweet'   
+        },
+        function (error, response) {
+            if (error === null) {
+                console.log(`${typeof response} is being sent back to index.js for uiUpdate function...`)
+                res.send(response);
+            } else (error) => {
+                console.log(error)
+            }
+        })    
+    }
+)
+

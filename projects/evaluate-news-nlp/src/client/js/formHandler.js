@@ -1,25 +1,18 @@
-import { ResultsUpdate } from './uiUpdate';
-import { UrlValidator } from './validateUrl';
+/* Import helper functions */
+import "regenerator-runtime/runtime";
+import { ResultsUpdate } from "./uiUpdate";
+import { getSentiment } from "./sentimentAnalyzer"
 
+/* Chain functions as promises */
 function SubmitHandler(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    let formText = document.getElementById('webAddress').value;
-    let url = UrlValidator(formText);
+  let formText = document.getElementById("text").value;
 
-    fetch('http://localhost:3000/api', {
-        method: 'POST',       
-        body: JSON.stringify({url}),
-        headers: {'Content-Type': 'application/json'}
-    })
-    .then((reply)=> reply.json())
-    .then((reply) => {
-        console.log(typeof reply);
-        let objectReply = JSON.parse(reply);
-        ResultsUpdate(objectReply);
-    })    
+  getSentiment("http://localhost:3000/sentiment", formText)
+    .then((sentiment) => ResultsUpdate(sentiment))
     .catch((error) => {
-        console.log(error);
+      console.log(error);
     });
 }
 

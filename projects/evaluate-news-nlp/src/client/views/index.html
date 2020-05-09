@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+        <title>Sentence NLP</title>
     </head>
 
     <body>
@@ -17,15 +17,20 @@
         </header>
 
         <main>
+
+            <p>
+                Enter your sentence in the field below for sentiment analysis:
+            </p>
+
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="webAddress" type="text" name="input" value="" placeholder="Enter news article web address here">
+                <form class="" onsubmit="return SubmitHandler(event)">
+                    <input id="text" type="text" name="input" value="" placeholder="Start typing here">
                     <input type="submit" name="" value="submit" onclick="return Client.SubmitHandler(event)" onsubmit="return SubmitHandler(event)">
                 </form>
             <section>
 
             <section>
-                <strong>Article Results:</strong>
+                <strong>Sentiment Results:</strong>
                 <div id="results"></div>
             </section>
         </main>

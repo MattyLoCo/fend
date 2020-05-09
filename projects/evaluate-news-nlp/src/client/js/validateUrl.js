@@ -6,7 +6,7 @@ function UrlValidator (userInput) {
     } else {
 
         //  Debug log test
-        console.log(typeof userInput);        
+        console.log(`${typeof userInput}: ${userInput} successfully passed UrlValidator function`);        
         return userInput;    
     }    
 }
