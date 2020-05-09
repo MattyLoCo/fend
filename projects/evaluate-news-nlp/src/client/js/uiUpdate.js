@@ -18,6 +18,7 @@ function ResultsUpdate(results) {
         listItem.innerHTML = (`${key}: ${value}`);
         listElement.appendChild(listItem);
     }
+    console.log('uiUpdate complete!');
 }
 
 export { ResultsUpdate };
