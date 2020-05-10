@@ -4,3 +4,4 @@ dist
 /src/client/js/aylienApiCall.js
 /src/client/js/jsonUriConverter.js
 /src/client/js/validateUrl.js
+REQUIREMENTS.md
