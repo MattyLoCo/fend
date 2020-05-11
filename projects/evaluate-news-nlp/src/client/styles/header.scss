@@ -1,5 +1,55 @@
+$red: #FF8369;
+$blue: #79c7d6;
+$yellow: #fac232;
+$gray: #f0f0f0;
+$font-stack: Helvetica, Arial, sans-serif;
+
+@mixin font-size($n) {
+    font-size: $n * 1.2em;
+}
+
+@mixin heading-font {
+    @include font-size(2);
+    font-family: $font-stack;
+    font-weight: bold;
+    color: $red;
+}
+
 header {
+    background-color: $gray;
+    @include heading-font;    
     display: flex;
     justify-content: space-between;
     padding: 10px 40px;
+}
+
+.logo {
+    width: 5vw;
+    height: 5vw;
+}
+
+.navigation {
+    @include font-size(0.2);
+
+    ul {
+        
+        li { 
+            display: inline-block;   
+            padding: 6px 12px;          
+
+            a {
+                text-decoration: none;
+                color: $blue;
+
+                &:hover {
+                    color: $red;
+                    transition: ease 0.3s all;
+                }
+        
+                &:visited {
+                    color: $yellow;
+                }
+            }
+        }    
+    }
 }

@@ -1,0 +1,12 @@
+$red: #FF8369;
+$blue: #79c7d6;
+$yellow: #fac232;
+
+@mixin font-size($n) {
+    font-size: $n * 1.2em;
+}
+
+footer {
+    @include font-size(.7);
+    color: $red;
+}

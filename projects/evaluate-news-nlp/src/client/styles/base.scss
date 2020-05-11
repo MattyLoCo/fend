@@ -1,14 +1,46 @@
+$red: #FF8369;
+$blue: #79c7d6;
+$yellow: #fac232;
+
+@mixin font-size($n) {
+    font-size: $n * 1.2em;
+}
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
 
-main {
-    flex: 2;
-}
+    main {
+        flex: 2;
 
-section {
-    max-width: 800px;
-    margin: 50px auto;
-}
+        section {
+            max-width: 800px;
+            height: 100vh;
+            margin: 50px auto;
+
+            .resultsForm {
+                @include font-size(.8);
+            }
+
+            #results{
+                border: 1px solid #545454;
+                background-color: $yellow;
+                border-radius: 25px;
+                height: 50vh;                                
+
+                ul {
+                    padding: 25px 50px 75px;
+
+                    li {
+                        text-align: left;
+                        @include font-size(1);
+                        margin-top: 10px;
+                    }
+                }
+            }   
+        }
+    }
+}    
+
+

@@ -1,10 +1,16 @@
+$red: #FF8369;
+$blue: #79c7d6;
+$yellow: #fac232;
+
 form {
+    background-color: $blue;
     border: 1px solid #545454;
-    border-radius: 3px;
+    border-radius: 25px;
     padding: 40px;
 }
 
 input {
+    border-radius: 10px;
     padding: 5px 20px;
     width: 100%;
     line-height: 16px;

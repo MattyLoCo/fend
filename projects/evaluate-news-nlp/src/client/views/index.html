@@ -8,35 +8,40 @@
     <body>
 
         <header>
-            <div class="">
-                Logo
+            <div>
+                <img class="logo" src="../images/BHR logo.png" alt="site logo">
             </div>
-            <div class="">
-                navigation
+            <div>
+                <p>NLP Test</p>                    
+            </div>
+            <div>
+                <nav class="navigation">                
+                    <ul>
+                        <li><a href="#submitForm">Submit</a></li>
+                        <li><a href="#results">Results</a></li>
+                    </ul>
+                  </nav>
             </div>
         </header>
 
-        <main>
+        <main>         
 
-            <p>
-                Enter your sentence in the field below for sentiment analysis:
-            </p>
-
-            <section>
-                <form class="" onsubmit="return SubmitHandler(event)">
+            <section>                
+                <form id="submitForm" class="" onsubmit="return SubmitHandler(event)">
+                    <p>Enter your sentence in the field below for sentiment analysis:</p>                    
                     <input id="text" type="text" name="input" value="" placeholder="Start typing here">
-                    <input type="submit" name="" value="submit" onclick="return Client.SubmitHandler(event)" onsubmit="return SubmitHandler(event)">
+                    <input type="submit" name="" value="Submit" onclick="return Client.SubmitHandler(event)" onsubmit="return SubmitHandler(event)">
                 </form>
             <section>
 
-            <section>
-                <strong>Sentiment Results:</strong>
+            <section class="resultsForm">
+                <p>Sentiment Results:</p>
                 <div id="results"></div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>&copy;2020 Matthew Lopez</p>
         </footer>
 
     </body>
