@@ -1,4 +1,4 @@
-async function getSentiment (url = "", text = "") {
+async function getSentiment(url = "", text = "") {
   const response = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "text/plain" },

@@ -1,55 +1,94 @@
-$red: #FF8369;
-$blue: #79c7d6;
-$yellow: #fac232;
-$gray: #f0f0f0;
-$font-stack: Helvetica, Arial, sans-serif;
-
-@mixin font-size($n) {
-    font-size: $n * 1.2em;
-}
+@import "./themes.scss";
 
 @mixin heading-font {
-    @include font-size(2);
-    font-family: $font-stack;
-    font-weight: bold;
-    color: $red;
+  @include font-size(2);
+  font-family: $font-stack;
+  font-weight: bold;
+  color: $red;
 }
 
-header {
-    background-color: $gray;
-    @include heading-font;    
+@media screen and (max-width: 900px) {
+  header {
     display: flex;
     justify-content: space-between;
+    background-color: $gray;
+    @include heading-font;
     padding: 10px 40px;
-}
+  }
 
-.logo {
-    width: 5vw;
-    height: 5vw;
-}
+  .logo {
+    width: 10vw;
+    height: 10vw;
+  }
 
-.navigation {
+  .navigation {
     @include font-size(0.2);
+    padding: 30px 0px;
 
     ul {
-        
-        li { 
-            display: inline-block;   
-            padding: 6px 12px;          
+      li {
+        display: inline-block;
+        padding: 6px 5px;
 
-            a {
-                text-decoration: none;
-                color: $blue;
+        a {
+          text-decoration: none;
+          color: $blue;
 
-                &:hover {
-                    color: $red;
-                    transition: ease 0.3s all;
-                }
-        
-                &:visited {
-                    color: $yellow;
-                }
-            }
-        }    
+          &:hover {
+            color: $red;
+            transition: ease 0.3s all;
+          }
+
+          &:visited {
+            color: $yellow;
+          }
+        }
+      }
     }
+  }
+}
+
+@media (min-width: 901px) {
+  header {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: auto;
+    grid-template-areas: "hd hd hd";
+    background-color: $gray;
+    @include heading-font;
+    padding: 10px 40px;
+  }
+
+  .logo {
+    width: 5vw;
+    height: 5vw;
+    float: left;
+  }
+
+  .navigation {
+    @include font-size(0.2);
+    float: right;
+
+    ul {
+      li {
+        display: inline-block;
+        padding: 6px 12px;
+        line-height: 2.5;
+
+        a {
+          text-decoration: none;
+          color: $blue;
+
+          &:hover {
+            color: $red;
+            transition: ease 0.3s all;
+          }
+
+          &:visited {
+            color: $yellow;
+          }
+        }
+      }
+    }
+  }
 }

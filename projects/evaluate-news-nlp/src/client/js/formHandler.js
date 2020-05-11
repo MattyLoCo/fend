@@ -1,7 +1,7 @@
 /* Import helper functions */
 import "regenerator-runtime/runtime";
 import { ResultsUpdate } from "./uiUpdate";
-import { getSentiment } from "./sentimentAnalyzer"
+import { getSentiment } from "./sentimentAnalyzer";
 
 /* Chain functions as promises */
 function SubmitHandler(event) {

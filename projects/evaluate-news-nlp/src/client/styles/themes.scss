@@ -1,0 +1,13 @@
+$red: #ff8369;
+$blue: #79c7d6;
+$yellow: #fac232;
+$gray: #f0f0f0;
+$font-stack: Helvetica, Arial, sans-serif;
+
+@mixin font-size($n) {
+  font-size: $n * 1.2em;
+}
+
+@mixin border-radius($n) {
+  border-radius: $n * 25px;
+}
